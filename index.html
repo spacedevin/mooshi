@@ -35,9 +35,10 @@
 			<p>Refresh your page for a new name</p>
 		</div>
 	</body>
+	<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
 	<script>
 		var names = {
-			first: ['moo','shi','shoo','mi','leek','loo','poo','shik'],
+			first: ['moo','shi','shoo','mi','leek','loo','poo','sheek'],
 			join: ['sha','shi','sh','shu','sho']
 		};
 
@@ -64,7 +65,14 @@
 				return name == 'poo' ? Name.random() : name;
 			}
 		}
-		document.getElementById('name').innerHTML = Name.random();
+
+		var mooshi = Name.random();
+		document.getElementById('name').innerHTML = mooshi.replace('-','');
+
+		responsiveVoice.setDefaultVoice('US English Female');
+		setTimeout(function() {
+			responsiveVoice.speak(mooshi);
+		}, 500);
 
 	</script>
 </html>
